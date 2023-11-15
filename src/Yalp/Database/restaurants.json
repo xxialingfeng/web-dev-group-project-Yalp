@@ -1,0 +1,14 @@
+[
+  { "_id": "1",
+    "name": "Health Salad Bar", "description": "Nice Salad"
+  },
+  { "_id": "2",
+    "name": "110 Grill", "description": "Big menu, nice food quality"
+  },
+  { "_id": "3",
+    "name": "Haidilao Hotpot", "description": "best hotpot"
+  },
+  { "_id": "4",
+  "name": "Wendy's", "description": "love the sandwitch"
+  }
+]
