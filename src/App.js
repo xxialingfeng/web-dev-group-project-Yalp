@@ -6,6 +6,7 @@ import Home from "./Yalp/Home"
 function App() {
   return (
     <BrowserRouter>
+      <YalpNavigation />
       <Routes>
         <Route path="/*" element={<Home />}>
         </Route>
