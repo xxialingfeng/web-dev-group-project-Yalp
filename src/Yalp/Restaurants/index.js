@@ -3,6 +3,7 @@ import LOGO from "./Chef-restaurant-logo.jpg";
 import dishImg from "./dish.avif";
 import mapImg from "./mapImg.png";
 import userImg from "./user.png";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 import { Link } from "react-router-dom";
 
@@ -64,7 +65,7 @@ export const Restaurant = () => {
         </div>
       </div>
 
-      <div id="locationHours" className="m-4">
+      <div id="location and hours" className="m-4">
         <h2 className="">Location & Hours </h2>
         <div className="d-flex ">
           <div className="d-flex flex-column me-3">
@@ -107,7 +108,74 @@ export const Restaurant = () => {
       <div id="recommended review" className="m-4">
         <h2 className="">Recommended Reviews </h2>
 
-        <div className="d-flex justify-content-between mb-3">
+        <div className=" userReviewForm form-control d-flex mb-3">
+          <div className="d-flex">
+            <img src={userImg} alt="" width={50} height={50} className="me-3" />
+            <div className="me-3">
+              <div className="">
+                <strong>Kevin</strong>
+              </div>
+              <div className="text-secondary">Boston, MA</div>
+            </div>
+          </div>
+          <div className="col">
+            <textarea
+              className="form-control col mb-3"
+              name=""
+              id=""
+              placeholder="Share your experience with the restaurant. What did you like? Any suggestions or feedback? "
+              cols="50"
+              rows=""
+            ></textarea>
+            <div className="d-flex ">
+              <div className="me-3 mb-1">🌟🌟🌟🌟🌟</div>
+              <div className="mb-2 text-secondary">Select your rating</div>
+            </div>
+            <button className="btn btn-success">Post Review</button>
+          </div>
+        </div>
+
+        <div className="reviewOverall form-control  d-flex justify-content-between mb-3 ">
+          <div className="me-5 col-2">
+            <h5 className="">Overall rating</h5>
+            <div className="">🌟🌟🌟🌟🌟</div>
+            <div className="text-secondary">916 reviews</div>
+          </div>
+          <div className="col">
+            <div className="row d-flex">
+              <div className="col-1">5 star</div>
+              <div className="col">
+                <ProgressBar className="" now={75} label={""} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1">4 star</div>
+              <div className="col">
+                <ProgressBar className="" now={75} label={""} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1">3 star</div>
+              <div className="col">
+                <ProgressBar className="" now={75} label={""} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1">2 star</div>
+              <div className="col">
+                <ProgressBar className="" now={75} label={""} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-1">1 star</div>
+              <div className="col">
+                <ProgressBar className="" now={75} label={""} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="reviewFilterAndSearch d-flex justify-content-between mb-3">
           <div className="d-flex">
             <button className="btn btn-secondary me-2">Yelp Sort</button>
             <button className="btn btn-secondary me-2">English (900)</button>
@@ -121,51 +189,6 @@ export const Restaurant = () => {
               placeholder="Search reviews"
             />
             <button className="btn btn-secondary me-2">Search</button>
-          </div>
-        </div>
-
-        <div className="form-control">
-          <div className="d-flex ">
-            <div className="d-flex">
-              <img src={userImg} alt="" width={50} height={50} />
-              <div className="">
-                <div className="">Username</div>
-                <div className="">Location</div>
-              </div>
-            </div>
-            <div className="form-control d-flex">
-              <div className="">🌟🌟🌟🌟🌟</div>
-              <div className="">Select your rating</div>
-            </div>
-          </div>
-          <div className="d-flex ">
-            <div className="me-3">
-              <div className="">Overall rating</div>
-              <div className="">🌟🌟🌟🌟🌟</div>
-              <div className="">916 reviews</div>
-            </div>
-            <div className="">
-              <div className="row">
-                <div className="col">5 star</div>
-                <div className="col">bar ......</div>
-              </div>
-              <div className="row">
-                <div className="col">4 star</div>
-                <div className="col">bar ......</div>
-              </div>
-              <div className="row">
-                <div className="col">3 star</div>
-                <div className="col">bar ......</div>
-              </div>
-              <div className="row">
-                <div className="col">2 star</div>
-                <div className="col">bar ......</div>
-              </div>
-              <div className="row">
-                <div className="col">1 star</div>
-                <div className="col">bar ......</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
