@@ -22,9 +22,11 @@ function Search() {
 
   useEffect(() => {
     if (searchTerm && searchLocation) {
+      console.log("searchTerm", searchTerm);
+      console.log("searchLocation", searchLocation);
       fetchBusinesses(searchTerm, searchLocation);
     }
-  }, [{ searchTerm, searchLocation }]);
+  }, [searchTerm, searchLocation]);
 
   const tags = (b) => {
     b.categories.map((category) => (
@@ -39,6 +41,7 @@ function Search() {
 
   return (
     <div className="container">
+      <pre>{process.env.REACT_APP_YELP_API_KEY}</pre>
       <div className="input-group mb-3">
         <span className="input-group-text" id="basic-addon1">
           Search
@@ -71,7 +74,7 @@ function Search() {
       <div>
         {results &&
           results.businesses.map((b) => (
-            <div className={styles["search-result"]}>
+            <div key={b.id} className={styles["search-result"]}>
               <Link to={`/details/${b.id}`}>
                 <img
                   src={b.image_url}

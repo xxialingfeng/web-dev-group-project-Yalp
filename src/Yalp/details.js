@@ -20,22 +20,22 @@ function Details() {
 
   useEffect(() => {
     fetchBusinessById();
-    fetchReviewsById();
+    // fetchReviewsById();
   }, []);
 
   return (
     <div className="container">
-      {/* <pre>{JSON.stringify(business, null, 2)}</pre> */}
       <div>
         {business && (
           <div>
+            <button className="btn btn-warning float-end">Like</button>
             <h1>{business.name}</h1>
             <img src={business.image_url} alt="business" />
             <p>{business.location.display_address}</p>
             <p>{business.display_phone}</p>
             <p>
               {business.categories.map((category) => (
-                <span>{category.title}</span>
+                <span key={category.title}>{category.title}</span>
               ))}
             </p>
             <p>{business.price}</p>
@@ -49,7 +49,7 @@ function Details() {
       <div>
         <h1>Reviews</h1>
         {/* <pre>{JSON.stringify(reviews, null, 2)}</pre> */}
-        {reviews && (
+        {/* {reviews && (
           <div>
             {reviews.map((review) => (
               <div>
@@ -60,7 +60,7 @@ function Details() {
               </div>
             ))}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
