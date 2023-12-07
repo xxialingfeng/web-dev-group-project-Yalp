@@ -16,13 +16,14 @@ const active = (path) => (pathname.includes(path) ? "active" : "");
 return (
   <div className="list-group">
     {links.map((link) => (
-      <Link
-        key={link.to}
-        to={link.to}
-        className={`list-group-item ${active(link.to)}`}
-      >
+      <button
+      key={link.to}
+      className={`list-group-item ${active(link.to)} btn btn-danger button-margin` }
+    >
+      <Link to={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>
         {link.label}
       </Link>
+    </button>
     ))}
   </div>
 );
