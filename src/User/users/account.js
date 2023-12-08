@@ -1,4 +1,6 @@
 import * as client from "./client";
+import { setCurrentUser } from "./reducer";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -23,9 +25,10 @@ function Account() {
   const updateUser = async () => {
     const status = await client.updateUser(account._id, account);
   };
-
+  const dispatch = useDispatch();
   const signout = async () => {
     await client.signout();
+    dispatch(setCurrentUser(null));
     navigate("/project/signin");
   };
 

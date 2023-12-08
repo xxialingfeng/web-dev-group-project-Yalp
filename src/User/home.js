@@ -6,7 +6,14 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <h1>TEST</h1>
+      {currentUser && (
+        <div>
+          <p>Welcome, {currentUser.username}!</p>
+          {/* You can display additional information from the currentUser if needed */}
+        </div>
+      )}
+
+      {!currentUser && <h1>TEST</h1>}
     </div>
   );
 }
