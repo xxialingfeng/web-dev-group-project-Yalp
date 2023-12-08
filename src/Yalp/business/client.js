@@ -13,10 +13,10 @@ export const findBusinessById = async (businessId) => {
   return response.data;
 };
 
-export const findReviewById = async (businessId) => {
-  const response = await axios.get(`${BUSINESSES_API}/${businessId}/reviews`);
-  return response.data;
-};
+// export const findReviewById = async (businessId) => {
+//   const response = await axios.get(`${BUSINESSES_API}/${businessId}/reviews`);
+//   return response.data;
+// };
 
 // export const findBusinesses = async (term, location) => {
 //   const config = {

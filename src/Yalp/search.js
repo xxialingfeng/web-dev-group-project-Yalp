@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import * as client from "./client";
-import styles from "./search.module.css";
+import * as businessClient from "./business/client";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./search.css";
 
 function Search() {
   const { searchTerm, searchLocation } = useParams();
@@ -14,7 +14,7 @@ function Search() {
   const navigate = useNavigate();
 
   const fetchBusinesses = async (term, location) => {
-    const results = await client.findBusinesses(term, location);
+    const results = await businessClient.findBusinesses(term, location);
     setResults(results);
     setTerm(term);
     setLocation(location);
@@ -22,26 +22,23 @@ function Search() {
 
   useEffect(() => {
     if (searchTerm && searchLocation) {
-      console.log("searchTerm", searchTerm);
-      console.log("searchLocation", searchLocation);
       fetchBusinesses(searchTerm, searchLocation);
     }
   }, [searchTerm, searchLocation]);
 
-  const tags = (b) => {
-    b.categories.map((category) => (
-      <span
-        className={`tag ${styles["business-tag"]}`}
-        key={b.id + category.title}
-      >
-        {category.title}
-      </span>
-    ));
-  };
+  // const tags = (b) => {
+  //   b.categories.map((category) => (
+  //     <span
+  //       className={`tag ${styles["business-tag"]}`}
+  //       key={b.id + category.title}
+  //     >
+  //       {category.title}
+  //     </span>
+  //   ));
+  // };
 
   return (
     <div className="container">
-      <pre>{process.env.REACT_APP_YELP_API_KEY}</pre>
       <div className="input-group mb-3">
         <span className="input-group-text" id="basic-addon1">
           Search
@@ -71,28 +68,35 @@ function Search() {
           <FaSearch />
         </button>
       </div>
+      <h1 className="title">Search Results</h1>
       <div>
         {results &&
           results.businesses.map((b) => (
-            <div key={b.id} className={styles["search-result"]}>
-              <Link to={`/details/${b.id}`}>
-                <img
-                  src={b.image_url}
-                  alt="business"
-                  className={styles["business-image"]}
-                />
-              </Link>
-              <div className={styles["business-info"]}>
-                <h2 className="subtitle">{b.name}</h2>
+            <div key={b.id} className="row mb-2 search-result">
+              <div className="col">
+                <Link to={`/details/${b.id}`}>
+                  <img
+                    src={b.image_url}
+                    alt="business"
+                    className="business-image"
+                  />
+                </Link>
+              </div>
+              <div className="col business-info align-top">
+                <h2 className="align-top">{b.name}</h2>
                 <h3>Rating: {b.rating}</h3>
-                <h3>Review Count: {b.review_count}</h3>
+                {/* <h3>Review Count: {b.review_count}</h3> */}
                 <p>
-                  {b.price} {tags(b)}
+                  {b.price}
+                  {/* {tags(b)} */}
                 </p>
               </div>
 
-              <div className={styles["contact-info"]}>
+              <div className="col contact-info">
                 <p>{b.phone}</p>
+                <p>
+                  {b.location.address1}, {b.location.city}
+                </p>
               </div>
             </div>
           ))}

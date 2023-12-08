@@ -10,8 +10,8 @@ import Details from "./Yalp/details";
 function App() {
   return (
     <BrowserRouter>
-      {/* <YalpNavigation /> */}
-      <LandingPage />
+      <YalpNavigation />
+      {/* <LandingPage /> */}
 
       <Routes>
         <Route path="/*" element={<Home />} />
