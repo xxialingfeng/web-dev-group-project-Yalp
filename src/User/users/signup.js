@@ -17,7 +17,7 @@ function Signup() {
     } catch (err) {
       setError(err.response.data.message);
     }
-  };
+  }; // TODO: Cannot sign up
   return (
     <div>
       <div className="login-page">
@@ -52,17 +52,6 @@ function Signup() {
                 })
               }
             />
-            <label htmlFor="role">Roles: </label>
-            <select
-              className="form-control mb-2"
-              // onChange={(e) => setAccount({ ...account, role: e.target.value })}
-            >
-              <option value="USER">User</option>
-              <option value="RESTAURANT">Restaurant</option>
-              <option value="ADMIN">Admin</option>
-            </select>
-            <br/>
-            <br/>
             <button className="btn btn-primary" onClick={signup}>
               Sign up
             </button>
@@ -75,3 +64,13 @@ function Signup() {
   );
 }
 export default Signup;
+
+    //  <label htmlFor="role">Roles: </label>
+    // {/* <select
+    //           className="form-control mb-2"
+    //           // onChange={(e) => setCredentials({ ...credentials, role: e.target.value })}
+    //         >
+    //           <option value="USER">User</option>
+    //           <option value="RESTAURANT">Owner</option>
+    //           <option value="ADMIN">Admin</option>
+    //         </select> */}

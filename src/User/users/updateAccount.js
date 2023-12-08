@@ -50,6 +50,14 @@ function Account() {
             <label htmlFor="password">Password</label>
             <input
               className="form-control mb-2"
+              value={account.username}
+              onChange={(e) =>
+                setAccount({ ...account, username: e.target.value })
+              }
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              className="form-control mb-2"
               value={account.password}
               onChange={(e) =>
                 setAccount({ ...account, password: e.target.value })
@@ -76,41 +84,26 @@ function Account() {
               }
             />
 
-            <label htmlFor="dob">Date of Birth</label>
-            <input
-              type="date"
-              className="form-control mb-2"
-              value={account.dob}
-              onChange={(e) => setAccount({ ...account, dob: e.target.value })}
-            />
-
             <label htmlFor="email">Email</label>
             <input
               className="form-control mb-2"
               value={account.email}
               onChange={(e) => setAccount({ ...account, email: e.target.value })}
             />
-
-            <label htmlFor="role">Roles</label>
-            <select
-              className="form-control mb-2"
-              onChange={(e) => setAccount({ ...account, role: e.target.value })}
-            >
-              <option value="USER">User</option>
-              <option value="ADMIN">Admin</option>
-              <option value="FACULTY">Faculty</option>
-              <option value="STUDENT">Student</option>
-            </select>
             <div className="d-flex justify-content-end">
+            <button
+                  className="btn btn-primary button-margin " onClick={updateUser}
+                >
+                  <Link to="/project/account" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Update
+                  </Link>
+                </button>
             <button className="btn btn-primary button-margin " onClick={updateUser}>
-              Update
+              Save
             </button>
             <button className="btn btn-danger button-margin" onClick={signout}>
-              Signout
+              Cancel
             </button>
-            <Link to="/project/admin/users button-margin w-50" className="btn btn-warning button-padding">
-              Users
-            </Link>
             </div>
           </div>
         )}

@@ -1,6 +1,8 @@
 import * as client from "./client";
 import { Link } from "react-router-dom";
+import { setCurrentUser } from "./reducer";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
@@ -10,6 +12,7 @@ function Signin() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signin = async () => {
     try {
@@ -18,6 +21,7 @@ function Signin() {
       console.log({ password });
       const user = await client.signin(credentials);
       console.log({ user });
+      dispatch(setCurrentUser(user));
       navigate("/project/account");
     } catch (error) {
       setError(error);
@@ -30,7 +34,7 @@ function Signin() {
         <div className="form">
           <div className="login">
             <div className="login-header">
-              <h2><img src="./YalpLogo.jpg"></img>
+              <h2>
                 Log In</h2>
               <p>Please enter your credentials to log in.</p>
             </div>

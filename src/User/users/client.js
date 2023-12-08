@@ -14,8 +14,8 @@ export const signin = async (credentials) => {
   return response.data;
 };
 
-export const updateUser = async (id, user) => {
-  const response = await request.put(`${USERS_API}/${id}`, user);
+export const signout = async () => {
+  const response = await request.post(`${USERS_API}/signout`);
   return response.data;
 };
 
@@ -29,13 +29,18 @@ export const findAllUsers = async () => {
   return response.data;
 };
 
-export const createUser = async (user) => {
-  const response = await request.post(`${USERS_API}`, user);
+export const findUserById = async (id) => {
+  const response = await request.get(`${USERS_API}/${id}`);
   return response.data;
 };
 
-export const findUserById = async (id) => {
-  const response = await request.get(`${USERS_API}/${id}`);
+export const updateUser = async (id, user) => {
+  const response = await request.put(`${USERS_API}/${id}`, user);
+  return response.data;
+};
+
+export const createUser = async (user) => {
+  const response = await request.post(`${USERS_API}`, user);
   return response.data;
 };
 
@@ -49,7 +54,3 @@ export const signup = async (credentials) => {
   return response.data;
 };
 
-export const signout = async () => {
-  const response = await request.post(`${USERS_API}/signout`);
-  return response.data;
-};

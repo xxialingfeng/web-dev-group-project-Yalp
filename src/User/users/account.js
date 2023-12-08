@@ -40,82 +40,65 @@ function Account() {
   return (
     <div>
       <div className="login-page">
-      <div className="form">
-      <div className="login-header">
-        <h1>Account Information</h1>
-        </div>
-        {account && (
-          <div>
-            <div>
-            <label htmlFor="password">Password</label>
-            <input
-              className="form-control mb-2"
-              value={account.password}
-              onChange={(e) =>
-                setAccount({ ...account, password: e.target.value })
-              }
-            />
-            </div>
-
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              className="form-control mb-2"
-              value={account.firstName}
-              onChange={(e) =>
-                setAccount({ ...account, firstName: e.target.value })
-              }
-            />
-
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              className="form-control mb-2"
-              value={account.lastName}
-              onChange={(e) =>
-                setAccount({ ...account, lastName: e.target.value })
-              }
-            />
-
-            <label htmlFor="dob">Date of Birth</label>
-            <input
-              type="date"
-              className="form-control mb-2"
-              value={account.dob}
-              onChange={(e) => setAccount({ ...account, dob: e.target.value })}
-            />
-
-            <label htmlFor="email">Email</label>
-            <input
-              className="form-control mb-2"
-              value={account.email}
-              onChange={(e) => setAccount({ ...account, email: e.target.value })}
-            />
-
-            <label htmlFor="role">Roles</label>
-            <select
-              className="form-control mb-2"
-              onChange={(e) => setAccount({ ...account, role: e.target.value })}
-            >
-              <option value="USER">User</option>
-              <option value="ADMIN">Admin</option>
-              <option value="FACULTY">Faculty</option>
-              <option value="STUDENT">Student</option>
-            </select>
-            <div className="d-flex justify-content-end">
-            <button className="btn btn-primary button-margin " onClick={updateUser}>
-              Update
-            </button>
-            <button className="btn btn-danger button-margin" onClick={signout}>
-              Signout
-            </button>
-            <Link to="/project/admin/users button-margin w-50" className="btn btn-warning button-padding">
-              Users
-            </Link>
-            </div>
+        <div className="form">
+          <div className="login-header">
+            <h1>Account Information</h1>
           </div>
-        )}
+          {account && (
+            <div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input
+                  className="form-control mb-2"
+                  value={account.password}
+                  readOnly
+                />
+              </div>
+
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                className="form-control mb-2"
+                value={account.firstName}
+                readOnly
+              />
+
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                className="form-control mb-2"
+                value={account.lastName}
+                readOnly
+              />
+
+              <label htmlFor="email">Email</label>
+              <input
+                className="form-control mb-2"
+                value={account.email}
+                readOnly
+              />
+
+              <label htmlFor="role">Roles</label>
+              <input
+                className="form-control mb-2"
+                value={account.role}
+                readOnly
+              />
+              <div className="d-flex justify-content-end">
+                <button
+                  className="btn btn-primary button-margin "
+                >
+                  <Link to="/project/updateaccount" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Update
+                  </Link>
+                </button>
+                <button className="btn btn-danger button-margin" onClick={signout}>
+                  Signout
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
