@@ -26,12 +26,12 @@ function YalpNavigation() {
           Yalp
         </span>
         <div
-          class="input-group mb-5"
+          className="input-group mb-5"
           style={{ width: "600px", marginTop: "10px", marginRight: "50px" }}
         >
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Search"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
