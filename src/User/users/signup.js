@@ -16,6 +16,16 @@ function Signup() {
   const dispatch = useDispatch();
   const signup = async () => {
     try {
+      if (!credentials.username) {
+        setError("Username cannot be empty");
+        return; // Exit the function early
+      }
+
+      if (!credentials.password) {
+        setError("Password cannot be empty");
+        return; // Exit the function early
+      }
+
       await client.signup(credentials);
       const user = await client.signin(credentials);
       dispatch(setCurrentUser(user));
@@ -23,7 +33,8 @@ function Signup() {
     } catch (err) {
       setError(err.response.data.message);
     }
-  }; // TODO: Cannot sign up
+  }; 
+  // TODO: Cannot sign up
   return (
     <div>
       <div className="login-page">
@@ -34,7 +45,8 @@ function Signup() {
               <p>Please enter your credentials to sign up.</p>
             </div>
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}
+          {error && <div className="error">{error}</div>}
+          <br/>
           <form className="login-form">
             <input
               type="text"
@@ -66,12 +78,15 @@ function Signup() {
               <option value="USER">User</option>
               <option value="RESTAURANT">Owner</option>
               <option value="ADMIN">Admin</option>
-            </select> */}
+            </select> TODO add role in sign up page*/}
             <button className="btn btn-primary" onClick={signup}>
               Sign up
             </button>
             <p className="message">Already have an account? <Link to="/project/signin"
           className={`nav-link`}>Log in</Link></p>
+          <Link to="/project/home"
+            className={`nav-link message`}>Back to home page</Link>
+             {/* TODO: change the link to real home page */}
           </form>
         </div>
       </div>

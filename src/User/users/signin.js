@@ -17,6 +17,15 @@ function Signin() {
   const signin = async () => {
     try {
       const credentials = { username: username, password: password };
+      if (!credentials.username) {
+        setError("Username cannot be empty");
+        return; // Exit the function early
+      }
+
+      if (!credentials.password) {
+        setError("Password cannot be empty");
+        return; // Exit the function early
+      }
       console.log({ username });
       console.log({ password });
       const user = await client.signin(credentials);
@@ -56,10 +65,14 @@ function Signin() {
             <button className="btn btn-primary" onClick={signin}>
               Sign in
             </button>
-            <p className="message">Not registered?<Link to="/project/signup"
+            <p className="message">Not registered? <Link to="/project/signup"
             className={`nav-link`}>Create an account</Link>
           </p>
+          <Link to="/project/home"
+            className={`nav-link message`}>Back to home page</Link> 
           </form>
+          {/* TODO: change the link to real home page */}
+
         </div>
       </div>
     </div>

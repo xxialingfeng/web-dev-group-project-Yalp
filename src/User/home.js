@@ -1,4 +1,4 @@
-import { useSelector, useDispatch, Provider } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function Home() {
   const { currentUser } = useSelector((state) => state.userReducer);
@@ -8,12 +8,16 @@ function Home() {
       <h1>Home</h1>
       {currentUser && (
         <div>
-          <p>Welcome, {currentUser.username}!</p>
+          <p>Username: {currentUser.username}</p>
+          <p>Username: {currentUser.password}</p>
           {/* You can display additional information from the currentUser if needed */}
         </div>
       )}
-
-      {!currentUser && <h1>TEST</h1>}
+      {!currentUser && (
+        <div>
+          <p>No currentUser</p>
+        </div>
+      )}
     </div>
   );
 }

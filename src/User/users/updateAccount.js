@@ -24,9 +24,8 @@ function Account() {
     const status = await client.updateUser(account._id, account);
   };
 
-  const signout = async () => {
-    await client.signout();
-    navigate("/project/signin");
+  const unsave = async () => {
+    navigate("/project/account");
   };
 
   useEffect(() => {
@@ -95,13 +94,10 @@ function Account() {
                   className="btn btn-primary button-margin " onClick={updateUser}
                 >
                   <Link to="/project/account" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    Update
+                    Save
                   </Link>
                 </button>
-            <button className="btn btn-primary button-margin " onClick={updateUser}>
-              Save
-            </button>
-            <button className="btn btn-danger button-margin" onClick={signout}>
+            <button className="btn btn-danger button-margin" onClick={unsave}>
               Cancel
             </button>
             </div>
