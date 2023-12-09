@@ -1,0 +1,17 @@
+[
+    {
+        "name":"dish 1",
+        "price":35.0,
+        "restaurant_id":"1"
+    },
+    {
+        "name":"dish 1",
+        "price":39.0,
+        "restaurant_id":"1"
+    },
+    {
+        "name":"dish 1",
+        "price":44.0,
+        "restaurant_id":"1"
+    }
+]
