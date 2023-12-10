@@ -3,15 +3,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router-dom";
 import YalpNavigation from "./Yalp/YalpNavigation";
 import Home from "./Yalp/Home";
-import LandingPage from "./Yalp/LandingPage";
 import Search from "./Yalp/search";
 import Details from "./Yalp/details";
+import LandingPage from "./Yalp/LandingPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <YalpNavigation />
-      {/* <LandingPage /> */}
+      {/* {<LandingPage />} */}
+      {/* <YalpNavigation /> */}
 
       <Routes>
         <Route path="/*" element={<Home />} />

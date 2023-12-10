@@ -4,6 +4,7 @@ import * as businessClient from "./business/client";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 import "./search.css";
 
 function Search() {
@@ -25,17 +26,6 @@ function Search() {
       fetchBusinesses(searchTerm, searchLocation);
     }
   }, [searchTerm, searchLocation]);
-
-  // const tags = (b) => {
-  //   b.categories.map((category) => (
-  //     <span
-  //       className={`tag ${styles["business-tag"]}`}
-  //       key={b.id + category.title}
-  //     >
-  //       {category.title}
-  //     </span>
-  //   ));
-  // };
 
   return (
     <div className="container">

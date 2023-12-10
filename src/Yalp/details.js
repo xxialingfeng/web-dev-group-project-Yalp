@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as reviewClient from "./reviews/client";
 import * as businessClient from "./business/client";
+import { useSelector, useDispatch, Provider } from "react-redux";
+import Search from "./search";
 import "./details.css";
 
 function Details() {
   //TODO: get current user from context
+  // const { currentUser } = useSelector((state) => state.userReducer);
   const currentUser = { id: "1", name: "test user", email: "123@gmail.com" };
   const { businessId } = useParams();
   const [business, setBusiness] = useState(null);
@@ -33,15 +36,24 @@ function Details() {
       reviewContent
     );
     setReviews([...reviews, response]);
+    setReviewContent("");
   };
   const deleteReview = async () => {
     const status = await reviewClient.deleteReview(currentUser.id, businessId);
+    setReviews(reviews.filter((review) => review.userId !== currentUser.id));
   };
   const updateReview = async () => {
     const status = await reviewClient.updateReview(
       currentUser.id,
       businessId,
       reviewContent
+    );
+    setReviews(
+      reviews.map((review) =>
+        review.userId === currentUser.id
+          ? { ...review, content: reviewContent }
+          : review
+      )
     );
   };
   const fetchReviewByUserId = async () => {
@@ -58,6 +70,7 @@ function Details() {
   return (
     <div className="container">
       <div>
+        <Search />
         {business && (
           <div className="d-flex">
             <div>

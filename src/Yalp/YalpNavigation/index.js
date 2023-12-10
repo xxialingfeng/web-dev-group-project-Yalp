@@ -1,4 +1,4 @@
-import bg from "../assets/groupMeal.jpeg";
+import bg from "./groupMeal.jpeg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ function YalpNavigation() {
         style={{
           width: "100%",
           position: "absolute",
-          height: "50px",
+          height: "400px",
           zIndex: "-1",
         }}
       />
@@ -26,12 +26,12 @@ function YalpNavigation() {
           Yalp
         </span>
         <div
-          class="input-group mb-5"
+          className="input-group mb-5"
           style={{ width: "600px", marginTop: "10px", marginRight: "50px" }}
         >
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Search"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
