@@ -10,8 +10,8 @@ import "./details.css";
 
 function Details() {
   //TODO: get current user from context
-  // const { currentUser } = useSelector((state) => state.userReducer);
-  const currentUser = { id: "1", name: "test user", email: "123@gmail.com" };
+  const { currentUser } = useSelector((state) => state.userReducer);
+  // const currentUser = { id: "1", name: "test user", email: "123@gmail.com" };
   const { businessId } = useParams();
   const [business, setBusiness] = useState(null);
   const [reviews, setReviews] = useState(null);

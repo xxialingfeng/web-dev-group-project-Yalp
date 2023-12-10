@@ -10,8 +10,8 @@ import Signin from "./Users/signin";
 import Signup from "./Users/signup";
 import Account from "./Users/account";
 import UpdateAccount from "./Users/updateAccount";
-import Search from "./Yalp/search";
-import Details from "./Yalp/details";
+import Search from "./search";
+import Details from "./details";
 
 import { Restaurant } from "./Restaurants";
 import UserManagement from "./UserManagement";
