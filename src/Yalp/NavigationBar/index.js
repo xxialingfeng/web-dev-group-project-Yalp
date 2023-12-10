@@ -2,9 +2,19 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 function NavigationBar() {
+  const { pathname } = useLocation();
+  const { currentUser } = useSelector((state) => state.userReducer);
+  const links = [
+    { to: "/home", label: "Home" },
+    { to: "/signin", label: "Signin" },
+    { to: "/signup", label: "Signup" },
+    { to: "/account", label: "Account" },
+  ];
+  const active = (path) => (pathname.includes(path) ? "active" : "");
   return (
     <Navbar
       bg="dark"
@@ -26,7 +36,20 @@ function NavigationBar() {
             <Nav.Link href="signup" className="float-end">
               SignUp
             </Nav.Link>
-            <Link></Link>
+            {links.map((link) => (
+      (link.label === "Signin" || link.label === "Signup") && currentUser !== null ? null : (
+        (link.label === "Account" && currentUser === null) ? null : (
+      <button
+      key={link.to}
+      className={`list-group-item ${active(link.to)} btn btn-danger button-margin` }
+    >
+      <Link to={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>
+        {link.label}
+      </Link>
+    </button>
+    )
+    )
+    ))}
           </Nav>
         </Navbar.Collapse>
       </Container>
