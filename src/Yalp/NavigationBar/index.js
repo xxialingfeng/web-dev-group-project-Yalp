@@ -11,7 +11,7 @@ function NavigationBar() {
   const links = [
     { to: "/signin", label: "Signin" },
     { to: "/signup", label: "Signup" },
-    { to: "/account", label: currentUser.username },
+    { to: "/account", label: "Account" },
   ];
   const active = (path) => (pathname.includes(path) ? "active" : "");
   return (
