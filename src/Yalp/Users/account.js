@@ -15,13 +15,13 @@ function Account() {
   console.log({ id });
   const [account, setAccount] = useState(null);
   console.log({ account });
-  const [followers, setFollowers] = useState([]);
-  const [following, setFollowing] = useState([]);
-  const { currentUser } = useSelector((state) => state.userReducer);
-  // const findUserById = async (id) => {
-  //   const user = await client.findUserById(id);
-  //   setAccount(user);
-  // };
+  // const [followers, setFollowers] = useState([]);
+  // const [following, setFollowing] = useState([]);
+  // const { currentUser } = useSelector((state) => state.userReducer);
+  const findUserById = async (id) => {
+    const user = await client.findUserById(id);
+    setAccount(user);
+  };
 
   const fetchAccount = async () => {
     const account = await client.account();
@@ -37,38 +37,35 @@ function Account() {
     dispatch(setCurrentUser(null));
     navigate("/signin");
   };
-  const followUser = async () => {
-    const status = await followsClient.userFollowsUser(id);
-  };
-  const unfollowUser = async () => {
-    const status = await followsClient.userUnfollowsUser(id);
-  };
-  const fetchFollowers = async (id) => {
-    console.log("I am fetch followers");
-    const followers = await followsClient.findFollowersOfUser(id);
-    setFollowers(followers);
-  };
-  const fetchFollowing = async (id) => {
-    console.log("I am fetch following");
-    const following = await followsClient.findFollowedUsersByUser(id);
-    setFollowing(following);
-  };
-  const alreadyFollowing = () => {
-    return followers.some((follows) => {
-      return follows.follower._id === currentUser._id;
-    });
-  };
+  // const followUser = async () => {
+  //   const status = await followsClient.userFollowsUser(id);
+  // };
+  // const unfollowUser = async () => {
+  //   const status = await followsClient.userUnfollowsUser(id);
+  // };
+  // const fetchFollowers = async (id) => {
+  //   console.log("I am fetch followers");
+  //   const followers = await followsClient.findFollowersOfUser(id);
+  //   setFollowers(followers);
+  // };
+  // const fetchFollowing = async (id) => {
+  //   console.log("I am fetch following");
+  //   const following = await followsClient.findFollowedUsersByUser(id);
+  //   setFollowing(following);
+  // };
+  // const alreadyFollowing = () => {
+  //   return followers.some((follows) => {
+  //     return follows.follower._id === currentUser._id;
+  //   });
+  // };
 
   useEffect(() => {
-    console.log("id");
     if (id) {
-      console.log("HEHE");
+      findUserById(id);
     } else {
       fetchAccount();
-      fetchFollowers(currentUser._id);
-      fetchFollowing(currentUser._id);
     }
-  }, [currentUser._id]);
+  }, []);
 
   return (
     <div>
@@ -116,7 +113,7 @@ function Account() {
                 value={account.role}
                 readOnly
               />
-              <h3>Followers</h3>
+              {/* <h3>Followers</h3>
           <div className="list-group">
             {followers.map((follows, index) => (
               <p>
@@ -133,7 +130,7 @@ function Account() {
                {follows.follower._id}
              </p>
             ))}
-          </div>
+          </div> */}
               <div className="d-flex justify-content-end">
                 <button
                   className="btn btn-primary button-margin "
@@ -148,7 +145,7 @@ function Account() {
               </div>
             </div>
           )}
-          <Table/>
+          {/* <Table/> */}
         </div>
       </div>
     </div>

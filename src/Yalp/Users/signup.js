@@ -10,7 +10,7 @@ function Signup() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    // role: null,
+    role: null,
   });
 
   const navigate = useNavigate();
