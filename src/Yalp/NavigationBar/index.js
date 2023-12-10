@@ -9,10 +9,9 @@ function NavigationBar() {
   const { pathname } = useLocation();
   const { currentUser } = useSelector((state) => state.userReducer);
   const links = [
-    { to: "/home", label: "Home" },
     { to: "/signin", label: "Signin" },
     { to: "/signup", label: "Signup" },
-    { to: "/account", label: "Account" },
+    { to: "/account", label: currentUser.username },
   ];
   const active = (path) => (pathname.includes(path) ? "active" : "");
   return (
@@ -23,14 +22,14 @@ function NavigationBar() {
       className="bg-body-tertiary "
     >
       <Container className="">
-        <Navbar.Brand href="home">Yalp</Navbar.Brand>
+        <Navbar.Brand  as={Link} to="/home">Yalp</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="search">Search</Nav.Link>
-            <Nav.Link href="profile">Profile</Nav.Link>
-            <Nav.Link href="login" className="float-end">
+            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+            <Nav.Link as={Link} to="/search">Search</Nav.Link>
+            <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/login" className="float-end">
               Login
             </Nav.Link>
             <Nav.Link href="signup" className="float-end">
@@ -39,16 +38,8 @@ function NavigationBar() {
             {links.map((link) => (
       (link.label === "Signin" || link.label === "Signup") && currentUser !== null ? null : (
         (link.label === "Account" && currentUser === null) ? null : (
-      <button
-      key={link.to}
-      className={`list-group-item ${active(link.to)} btn btn-danger button-margin` }
-    >
-      <Link to={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>
-        {link.label}
-      </Link>
-    </button>
-    )
-    )
+          <Nav.Link as={Link} to={link.to}>{link.label}</Nav.Link>
+    ))
     ))}
           </Nav>
         </Navbar.Collapse>

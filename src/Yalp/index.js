@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+// import { store, persistor } from "./store";
 import store from "./store";
 import { Provider } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,9 +23,13 @@ function Yalp() {
         <NavigationBar />
         <div>
         <div>
+        {currentUser && (
+        <div>
           <p>Username: {currentUser.username}</p>
-          <p>Username: {currentUser.password}</p>
+          <p>Password: {currentUser.password}</p>
           {/* You can display additional information from the currentUser if needed */}
+        </div>
+      )}
         </div>
           <Container>
             <Routes>
