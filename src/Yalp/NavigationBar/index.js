@@ -29,12 +29,6 @@ function NavigationBar() {
             <Nav.Link as={Link} to="/home">Home</Nav.Link>
             <Nav.Link as={Link} to="/search">Search</Nav.Link>
             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-            <Nav.Link as={Link} to="/login" className="float-end">
-              Login
-            </Nav.Link>
-            <Nav.Link href="signup" className="float-end">
-              SignUp
-            </Nav.Link>
             {links.map((link) => (
       (link.label === "Signin" || link.label === "Signup") && currentUser !== null ? null : (
         (link.label === "Account" && currentUser === null) ? null : (
