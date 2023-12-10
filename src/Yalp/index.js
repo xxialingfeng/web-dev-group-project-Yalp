@@ -10,6 +10,8 @@ import Signin from "./Users/signin";
 import Signup from "./Users/signup";
 import Account from "./Users/account";
 import UpdateAccount from "./Users/updateAccount";
+import Search from "./Yalp/search";
+import Details from "./Yalp/details";
 
 import { Restaurant } from "./Restaurants";
 import UserManagement from "./UserManagement";
@@ -22,15 +24,15 @@ function Yalp() {
       <div>
         <NavigationBar />
         <div>
-        <div>
-        {currentUser && (
-        <div>
-          <p>Username: {currentUser.username}</p>
-          <p>Password: {currentUser.password}</p>
-          {/* You can display additional information from the currentUser if needed */}
-        </div>
-      )}
-        </div>
+          <div>
+            {currentUser && (
+              <div>
+                <p>Username: {currentUser.username}</p>
+                <p>Password: {currentUser.password}</p>
+                {/* You can display additional information from the currentUser if needed */}
+              </div>
+            )}
+          </div>
           <Container>
             <Routes>
               <Route path="/*" element={<Navigate to="/home" />} />
@@ -41,10 +43,16 @@ function Yalp() {
               />
               <Route path="/users" element={<UserManagement />} />
               <Route path="/signin" element={<Signin />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/updateaccount" element={<UpdateAccount />} />
-            <Route path="/account/:id" element={<Account />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/updateaccount" element={<UpdateAccount />} />
+              <Route path="/account/:id" element={<Account />} />
+              <Route path="search/*" element={<Search />} />
+              <Route
+                path="search/:searchTerm/:searchLocation"
+                element={<Search />}
+              />
+              <Route path="details/:businessId" element={<Details />} />
             </Routes>
           </Container>
         </div>
