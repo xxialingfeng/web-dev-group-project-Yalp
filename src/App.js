@@ -16,7 +16,7 @@ function App() {
       {/* <YalpNavigation /> */}
 
       <Routes>
-        <Route path="/*" element={<Home />} />
+        <Route path="/*" element={<Yalp />} />
         <Route path="search" element={<Search />} />
         <Route path="search/:searchTerm/:searchLocation" element={<Search />} />
         <Route path="details/:businessId" element={<Details />} />

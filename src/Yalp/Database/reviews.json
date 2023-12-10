@@ -1,0 +1,82 @@
+[
+    {
+      "title": "Exceptional Service",
+      "restaurant_name": "Gourmet Delights",
+      "user_id": "user234",
+      "content": "Gourmet Delights surpassed my expectations with exceptional service. The staff was friendly and attentive.",
+      "user_profile_img": "user234.jpg",
+      "date": "2023-04-05"
+    },
+    {
+      "title": "Cozy Atmosphere",
+      "restaurant_name": "Rustic Eats",
+      "user_id": "user567",
+      "content": "Rustic Eats has a cozy atmosphere that makes you feel right at home. Loved the rustic decor!",
+      "user_profile_img": "user567.jpg",
+      "date": "2023-05-22"
+    },
+    {
+      "title": "Delicious Desserts",
+      "restaurant_name": "Sweet Treats Bakery",
+      "user_id": "user890",
+      "content": "Sweet Treats Bakery has the most delicious desserts in town. A must-visit for dessert enthusiasts!",
+      "user_profile_img": "user890.jpg",
+      "date": "2023-06-18"
+    },
+    {
+      "title": "Spectacular Views",
+      "restaurant_name": "Skyline Dining",
+      "user_id": "user1234",
+      "content": "Skyline Dining offers spectacular views of the city. Dining here feels like a special experience.",
+      "user_profile_img": "user1234.jpg",
+      "date": "2023-07-09"
+    },
+    {
+      "title": "Family-Friendly Spot",
+      "restaurant_name": "Joyful Bites",
+      "user_id": "user5678",
+      "content": "Joyful Bites is a family-friendly spot with a diverse menu. Perfect for a casual family dinner.",
+      "user_profile_img": "user5678.jpg",
+      "date": "2023-08-14"
+    },
+    {
+      "title": "Authentic Cuisine",
+      "restaurant_name": "Flavors of India",
+      "user_id": "user9012",
+      "content": "Flavors of India serves authentic and flavorful cuisine. A culinary journey worth experiencing.",
+      "user_profile_img": "user9012.jpg",
+      "date": "2023-09-27"
+    },
+    {
+      "title": "Friendly Staff",
+      "restaurant_name": "Cheerful Bistro",
+      "user_id": "user3456",
+      "content": "Cheerful Bistro has a friendly staff that adds to the overall positive dining experience.",
+      "user_profile_img": "user3456.jpg",
+      "date": "2023-10-11"
+    },
+    {
+      "title": "Trendy Vibe",
+      "restaurant_name": "Urban Eats",
+      "user_id": "user7890",
+      "content": "Urban Eats has a trendy vibe that appeals to the younger crowd. Hip and happening spot!",
+      "user_profile_img": "user7890.jpg",
+      "date": "2023-11-02"
+    },
+    {
+      "title": "Hearty Portions",
+      "restaurant_name": "Generous Grills",
+      "user_id": "user12345",
+      "content": "Generous Grills offers hearty portions that leave you satisfied. Great value for money.",
+      "user_profile_img": "user12345.jpg",
+      "date": "2023-12-19"
+    },
+    {
+      "title": "Charming Outdoor Seating",
+      "restaurant_name": "Patio Paradise",
+      "user_id": "user67890",
+      "content": "Patio Paradise has charming outdoor seating. A perfect spot for a romantic evening.",
+      "user_profile_img": "user67890.jpg",
+      "date": "2024-01-08"
+    }
+  ]
