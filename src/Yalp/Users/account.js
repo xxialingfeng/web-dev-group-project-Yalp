@@ -61,12 +61,12 @@ function Account() {
 
   useEffect(() => {
     console.log("id");
-    if (currentUser._id) {
+    if (id) {
       console.log("HEHE");
-      // fetchFollowers(currentUser._id);
-      // fetchFollowing(currentUser._id);
     } else {
       fetchAccount();
+      fetchFollowers(currentUser._id);
+      fetchFollowing(currentUser._id);
     }
   }, [currentUser._id]);
 
@@ -156,3 +156,4 @@ function Account() {
 }
 
 export default Account;
+// 9163d452af7d59a5ad0afe6701a76365f37cd914

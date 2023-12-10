@@ -17,9 +17,6 @@ function App() {
 
       <Routes>
         <Route path="/*" element={<Yalp />} />
-        <Route path="search" element={<Search />} />
-        <Route path="search/:searchTerm/:searchLocation" element={<Search />} />
-        <Route path="details/:businessId" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );
