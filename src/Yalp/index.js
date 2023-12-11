@@ -22,7 +22,9 @@ function Yalp() {
   console.log(currentUser);
   return (
     <Provider store={store}>
+
       {/* <CurrentUser> */}
+
       <div>
         <NavigationBar />
         <div>
@@ -60,7 +62,6 @@ function Yalp() {
         </div>
       </div>
       {/* </CurrentUser> */}
-
     </Provider>
   );
 }
