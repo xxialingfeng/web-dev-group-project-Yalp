@@ -23,7 +23,7 @@ function Yalp() {
   return (
     <Provider store={store}>
 
-      {/* <CurrentUser> */}
+      <CurrentUser>
 
       <div>
         <NavigationBar />
@@ -61,7 +61,7 @@ function Yalp() {
           </Container>
         </div>
       </div>
-      {/* </CurrentUser> */}
+      </CurrentUser>
     </Provider>
   );
 }
