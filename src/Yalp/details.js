@@ -72,49 +72,58 @@ function Details() {
       <div>
         <Search />
         {business && (
-          <div className="d-flex">
-            <div>
-              <h2>
-                <Link to={business.url} className="fs-2">
-                  {business.name}
-                </Link>
-              </h2>
-              <img
-                className="details-img"
-                src={business.image_url}
-                alt="business"
-              />
-            </div>
-            <div>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  {business.location.display_address}
-                </li>
-                <li class="list-group-item">{business.display_phone}</li>
-                <li class="list-group-item">
-                  {business.categories.map((category) => (
-                    <span key={category.title}>{category.title}</span>
-                  ))}
-                </li>
-                <li class="list-group-item">{business.price}</li>
-                <li class="list-group-item">{business.rating}</li>
-                <li class="list-group-item">{business.review_count}</li>
-                <li class="list-group-item">{business.transactions}</li>
-              </ul>
-            </div>
+          <div>
+            <Link to={business.url}>
+              <div className="card h-80" style={{ "max-width": "1000px" }}>
+                <div className="row g-0">
+                  <div className="col-md-6 mt-3 mb-3">
+                    <img
+                      src={business.image_url}
+                      className="business-image img-fluid rounded-start align-middle"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <div className="card-body">
+                      <h3 className="fw-bold">{business.name}</h3>
+                      <ul class="list-group mb-0">
+                        <li class="list-group-item mb-0 text-bg-light text-decoration-none">
+                          Address: {business.location.display_address}
+                        </li>
+                        <li class="list-group-item mb-0 text-bg-light">
+                          Phone: {business.display_phone}
+                        </li>
+                        <li class="list-group-item mb-0 text-bg-light">
+                          Rating: {business.rating}
+                        </li>
+                        <li class="list-group-item mb-0 text-bg-light">
+                          Price: {business.price}
+                        </li>
+                        {/* <li class="list-group-item mb-0 text-bg-light">
+                        And a fifth one
+                      </li> */}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
           </div>
         )}
       </div>
+
       <div>
-        <h1>Reviews</h1>
-        <h2>Write a Review</h2>
-        <button className="btn btn-warning float-end" onClick={createReview}>
+        <h1 className="mt-5">Write a Review</h1>
+        <button
+          className="btn btn-danger float-end mb-2"
+          onClick={createReview}
+        >
           Write a review
         </button>
 
         <input
           value={reviewContent}
-          className="form-control"
+          className="form-control mb-3"
           placeholder="write a review"
           onChange={(e) => setReviewContent(e.target.value)}
         />
