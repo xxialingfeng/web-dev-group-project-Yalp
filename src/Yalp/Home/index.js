@@ -67,7 +67,11 @@ function Home() {
             users={users}
           />
         ) : (
-          <UserView recentReviews={recentReviews} userReviews={userReviews} />
+          <UserView
+            username={currentUser.username}
+            recentReviews={recentReviews}
+            userReviews={userReviews}
+          />
         ))}
 
       {/* {currentUser && currentUser.role === "USER" && (
