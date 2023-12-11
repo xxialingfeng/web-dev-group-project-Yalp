@@ -149,11 +149,8 @@ function Account() {
           )}
             </div>
           )}
-<<<<<<< HEAD
           <Table />
-=======
-          <Table/>
->>>>>>> c51b5d72feeaf8a79dcb76c61cf611edcecdbcee
+
         </div>
       </div>
     </div>
