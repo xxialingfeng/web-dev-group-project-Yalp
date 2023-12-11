@@ -16,11 +16,13 @@ import Details from "./details";
 import { Restaurant } from "./Restaurants";
 import UserManagement from "./UserManagement";
 import Container from "react-bootstrap/Container";
+import CurrentUser from "./Users/currentUser";
 function Yalp() {
   const { currentUser } = useSelector((state) => state.userReducer);
   console.log(currentUser);
   return (
     <Provider store={store}>
+      <CurrentUser>
       <div>
         <NavigationBar />
         <div>
@@ -57,6 +59,7 @@ function Yalp() {
           </Container>
         </div>
       </div>
+      </CurrentUser>
     </Provider>
   );
 }

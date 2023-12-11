@@ -145,7 +145,7 @@ function Account() {
               </div>
             </div>
           )}
-          {/* <Table/> */}
+          <Table/>
         </div>
       </div>
     </div>
