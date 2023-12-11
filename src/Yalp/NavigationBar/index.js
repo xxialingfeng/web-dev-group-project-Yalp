@@ -22,19 +22,35 @@ function NavigationBar() {
       className="bg-body-tertiary "
     >
       <Container className="">
-        <Navbar.Brand  as={Link} to="/home">Yalp</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home">
+          Yalp
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/home">Home</Nav.Link>
-            <Nav.Link as={Link} to="/search">Search</Nav.Link>
-            <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-            {links.map((link) => (
-      (link.label === "Signin" || link.label === "Signup") && currentUser !== null ? null : (
-        (link.label === "Account" && currentUser === null) ? null : (
-          <Nav.Link as={Link} to={link.to}>{link.label}</Nav.Link>
-    ))
-    ))}
+            <Nav.Link as={Link} to="/home">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/search">
+              Search
+            </Nav.Link>
+            <Nav.Link as={Link} to="/profile">
+              Profile
+            </Nav.Link>
+            {currentUser && currentUser.role === "ADMIN" && (
+              <Nav.Link as={Link} to="/users">
+                Management
+              </Nav.Link>
+            )}
+            {links.map((link) =>
+              (link.label === "Signin" || link.label === "Signup") &&
+              currentUser !== null ? null : link.label === "Account" &&
+                currentUser === null ? null : (
+                <Nav.Link as={Link} to={link.to}>
+                  {link.label}
+                </Nav.Link>
+              )
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

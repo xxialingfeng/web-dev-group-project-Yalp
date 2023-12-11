@@ -10,7 +10,7 @@ function AnonView(props) {
         <Link to={"/singup"}>signup</Link>.
       </div>
       <h2>Recent Reviews</h2>
-      <ReviewList username={props.username} reviews={props.recentReviews} />
+      <ReviewList reviews={props.recentReviews} />
     </div>
   );
 }

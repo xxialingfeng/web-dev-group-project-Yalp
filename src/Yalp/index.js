@@ -28,15 +28,16 @@ function Yalp() {
       <div>
         <NavigationBar />
         <div>
-          <div>
+          {/* <div>
             {currentUser && (
               <div>
                 <p>Username: {currentUser.username}</p>
                 <p>Password: {currentUser.password}</p>
-                {/* You can display additional information from the currentUser if needed */}
+                <p>Role: {currentUser.role}</p>
+                
               </div>
             )}
-          </div>
+          </div> */}
           <Container>
             <Routes>
               <Route path="/*" element={<Navigate to="/home" />} />
