@@ -111,7 +111,7 @@ function UserTable() {
               </td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
-              <td className="text-nowrap">
+              {/* <td className="text-nowrap">
               {currentUser && currentUser._id !== id && (
         <>
           {alreadyFollowing() ? (
@@ -125,7 +125,7 @@ function UserTable() {
           )}
         </>
       )}
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

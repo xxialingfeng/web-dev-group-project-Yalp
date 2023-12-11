@@ -1,5 +1,4 @@
 import * as client from "./userClient";
-import Table from "./table";
 import { setCurrentUser } from "./reducer";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -149,7 +148,6 @@ function Account() {
           )}
             </div>
           )}
-          <Table />
 
         </div>
       </div>
