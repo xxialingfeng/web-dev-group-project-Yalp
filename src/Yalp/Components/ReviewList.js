@@ -13,16 +13,17 @@ function ReviewList(props) {
           <Card style={{ width: "300px" }}>
             <Card.Img
               variant="top"
-              src="https://picsum.photos/300/200"
+              src={review.img}
+              // src="https://picsum.photos/300/200"
               className="overflow-hidden"
             />
             <Card.Body>
               <Card.Title>{review.title} </Card.Title>
               <p className="text-secondary">
-                <Link className="text-decoration-none">{props.username}</Link>{" "}
+                <Link className="text-decoration-none">{review.username}</Link>{" "}
                 wrote a review for{" "}
                 <Link className="text-decoration-none">
-                  {review.restaurant_name}
+                  {review.restaurantName}
                 </Link>{" "}
                 on {review.date}
               </p>
