@@ -77,6 +77,7 @@ function Signup() {
     <select
               className="form-control mb-2"
               onChange={(e) => setCredentials({ ...credentials, role: e.target.value })}
+              defaultValue="USER" 
             >
               <option value="USER">User</option>
               <option value="ADMIN">Admin</option>

@@ -89,6 +89,10 @@ function UserTable() {
     });
   };
 
+  // const handleClick = (link) => {
+  //   navigate(link);
+  // }
+
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -101,7 +105,9 @@ function UserTable() {
           {users.map((user) => (
             <tr key={user._id}>
               <td>
-                <Link to={`/account/${user._id}`}>{user.username}</Link>
+                <Link to={`/account/${user._id}`} 
+                // onClick={() => handleClick(`/account/${user._id}`)} 
+                >{user.username}</Link>
               </td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>

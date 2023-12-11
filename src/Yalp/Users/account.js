@@ -76,14 +76,16 @@ function Account() {
           </div>
           {account && (
             <div>
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  className="form-control mb-2"
-                  value={account.password}
-                  readOnly
-                />
-              </div>
+              {!id && (
+                <div>
+                  <label htmlFor="password">Password</label>
+                  <input
+                    className="form-control mb-2"
+                    value={account.password}
+                    readOnly
+                  />
+                </div>
+              )}
 
               <label htmlFor="firstName">First Name</label>
               <input
@@ -131,6 +133,7 @@ function Account() {
              </p>
             ))}
           </div> */}
+          {!id && (
               <div className="d-flex justify-content-end">
                 <button
                   className="btn btn-primary button-margin "
@@ -143,9 +146,10 @@ function Account() {
                   Signout
                 </button>
               </div>
+          )}
             </div>
           )}
-          {/* <Table/> */}
+          <Table />
         </div>
       </div>
     </div>
