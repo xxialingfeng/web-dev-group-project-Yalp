@@ -1,5 +1,4 @@
 import * as client from "./userClient";
-import Table from "./table";
 import { setCurrentUser } from "./reducer";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -76,14 +75,16 @@ function Account() {
           </div>
           {account && (
             <div>
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  className="form-control mb-2"
-                  value={account.password}
-                  readOnly
-                />
-              </div>
+              {!id && (
+                <div>
+                  <label htmlFor="password">Password</label>
+                  <input
+                    className="form-control mb-2"
+                    value={account.password}
+                    readOnly
+                  />
+                </div>
+              )}
 
               <label htmlFor="firstName">First Name</label>
               <input
@@ -131,6 +132,7 @@ function Account() {
              </p>
             ))}
           </div> */}
+          {!id && (
               <div className="d-flex justify-content-end">
                 <button
                   className="btn btn-primary button-margin "
@@ -143,9 +145,10 @@ function Account() {
                   Signout
                 </button>
               </div>
+          )}
             </div>
           )}
-          {/* <Table/> */}
+
         </div>
       </div>
     </div>

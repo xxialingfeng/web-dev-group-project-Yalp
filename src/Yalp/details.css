@@ -3,3 +3,14 @@
     height: 600px;
     object-fit: cover;
 }
+
+a {
+    text-decoration: none;
+}
+
+.business-image {
+    width: 400px;
+    height: 270px;
+    border-radius: 4px;
+    margin-right: 1rem;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import UserList from "../Components/UserList";
 import ReviewList from "../Components/ReviewList";
 import { Link } from "react-router-dom";
+import Table from "../Users/table";
 function AdminView(props) {
   // const user = {
   //   username: "defaultuser",
@@ -15,6 +16,7 @@ function AdminView(props) {
       {/* <Link to="/users" className="btn btn-warning m-3">
         User Management
       </Link> */}
+      <Table />
       <div>
         <h2>Your Reviews</h2>
         <ReviewList reviews={props.userReviews} />
