@@ -32,7 +32,8 @@ function Details() {
 
   const createReview = async () => {
     const response = await reviewClient.createReview(
-      currentUser.id,
+      currentUser._id,
+      currentUser.username,
       businessId,
       reviewContent
     );
@@ -40,18 +41,18 @@ function Details() {
     setReviewContent("");
   };
   const deleteReview = async () => {
-    const status = await reviewClient.deleteReview(currentUser.id, businessId);
-    setReviews(reviews.filter((review) => review.userId !== currentUser.id));
+    const status = await reviewClient.deleteReview(currentUser._id, businessId);
+    setReviews(reviews.filter((review) => review.userId !== currentUser._id));
   };
   const updateReview = async () => {
     const status = await reviewClient.updateReview(
-      currentUser.id,
+      currentUser._id,
       businessId,
       reviewContent
     );
     setReviews(
       reviews.map((review) =>
-        review.userId === currentUser.id
+        review.userId === currentUser._id
           ? { ...review, content: reviewContent }
           : review
       )
@@ -150,10 +151,12 @@ function Details() {
                   <div className="card-body">
                     <h5 className="card-title">
                       Created By:
-                      <Link to="/profile/{review.userId}">{review.userId}</Link>
+                      <Link to="/profile/{review.userId}">
+                        {review.username}
+                      </Link>
                     </h5>
                     <p className="card-text">{review.content}</p>
-                    {currentUser && review.userId == currentUser.id && (
+                    {currentUser && review.userId === currentUser._id && (
                       <>
                         <button
                           className="btn btn-primary float-end"

@@ -10,9 +10,14 @@ export const findAllReviewsByRestaurantId = async (restaurantId) => {
   return response.data;
 };
 
-export const createReview = async (userId, restaurantId, reviewContent) => {
+export const createReview = async (
+  userId,
+  username,
+  restaurantId,
+  reviewContent
+) => {
   const response = await axios.post(
-    `${REVIEW_API}/${restaurantId}/${userId}/${reviewContent}`
+    `${REVIEW_API}/${restaurantId}/${userId}/${reviewContent}/${username}`
   );
   return response.data;
 };

@@ -16,7 +16,7 @@ function AdminView(props) {
       {/* <Link to="/users" className="btn btn-warning m-3">
         User Management
       </Link> */}
-      <Table />
+      {/* <Table /> */}
       <div>
         <h2>Your Reviews</h2>
         <ReviewList reviews={props.userReviews} />

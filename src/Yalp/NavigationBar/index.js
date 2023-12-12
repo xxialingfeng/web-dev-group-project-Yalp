@@ -34,15 +34,24 @@ function NavigationBar() {
             <Nav.Link as={Link} to="/search">
               Search
             </Nav.Link>
-            <Nav.Link as={Link} to="/profile">
+            {/* <Nav.Link as={Link} to="/profile">
               Profile
-            </Nav.Link>
+            </Nav.Link> */}
             {currentUser && currentUser.role === "ADMIN" && (
               <Nav.Link as={Link} to="/users">
                 Management
               </Nav.Link>
             )}
-            {links.map((link) =>
+            {currentUser ? (
+              <Nav.Link as={Link} to="/profile">
+                Account
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+            )}
+            {/* {links.map((link) =>
               (link.label === "Signin" || link.label === "Signup") &&
               currentUser !== null ? null : link.label === "Account" &&
                 currentUser === null ? null : (
@@ -50,7 +59,7 @@ function NavigationBar() {
                   {link.label}
                 </Nav.Link>
               )
-            )}
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

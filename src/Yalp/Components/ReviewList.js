@@ -20,12 +20,20 @@ function ReviewList(props) {
             <Card.Body>
               <Card.Title>{review.title} </Card.Title>
               <p className="text-secondary">
-                <Link className="text-decoration-none">{review.username}</Link>{" "}
+                <Link
+                  to={`/profile/${review.userId}`}
+                  className="text-decoration-none"
+                >
+                  {review.username}
+                </Link>{" "}
                 wrote a review for{" "}
-                <Link className="text-decoration-none">
+                <Link
+                  to={`/details/${review.restaurantId}`}
+                  className="text-decoration-none"
+                >
                   {review.restaurantName}
                 </Link>{" "}
-                on {review.date}
+                on {review.date.slice(0, 10)}
               </p>
               <Card.Text>{review.content}</Card.Text>
             </Card.Body>

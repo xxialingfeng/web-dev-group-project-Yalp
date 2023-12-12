@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Account() {
-
   const navigate = useNavigate();
   console.log({ navigate });
   const { id } = useParams();
@@ -39,72 +38,81 @@ function Account() {
   return (
     <div>
       <div className="login-page">
-      <div className="form">
-      <div className="login-header">
-        <h1>Update Account</h1>
-        </div>
-        {account && (
-          <div>
+        <div className="form">
+          <div className="login-header">
+            <h1>Update Account</h1>
+          </div>
+          {account && (
             <div>
-            <label htmlFor="password">Password</label>
-            <input
-              className="form-control mb-2"
-              value={account.username}
-              onChange={(e) =>
-                setAccount({ ...account, username: e.target.value })
-              }
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              className="form-control mb-2"
-              value={account.password}
-              onChange={(e) =>
-                setAccount({ ...account, password: e.target.value })
-              }
-            />
-            </div>
+              <div>
+                <label htmlFor="password">Username</label>
+                <input
+                  className="form-control mb-2"
+                  value={account.username}
+                  onChange={(e) =>
+                    setAccount({ ...account, username: e.target.value })
+                  }
+                />
+                <label htmlFor="password">Password</label>
+                <input
+                  className="form-control mb-2"
+                  value={account.password}
+                  onChange={(e) =>
+                    setAccount({ ...account, password: e.target.value })
+                  }
+                />
+              </div>
 
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              className="form-control mb-2"
-              value={account.firstName}
-              onChange={(e) =>
-                setAccount({ ...account, firstName: e.target.value })
-              }
-            />
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                className="form-control mb-2"
+                value={account.firstName}
+                onChange={(e) =>
+                  setAccount({ ...account, firstName: e.target.value })
+                }
+              />
 
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              className="form-control mb-2"
-              value={account.lastName}
-              onChange={(e) =>
-                setAccount({ ...account, lastName: e.target.value })
-              }
-            />
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                className="form-control mb-2"
+                value={account.lastName}
+                onChange={(e) =>
+                  setAccount({ ...account, lastName: e.target.value })
+                }
+              />
 
-            <label htmlFor="email">Email</label>
-            <input
-              className="form-control mb-2"
-              value={account.email}
-              onChange={(e) => setAccount({ ...account, email: e.target.value })}
-            />
-            <div className="d-flex justify-content-end">
-            <button
-                  className="btn btn-primary button-margin " onClick={updateUser}
+              <label htmlFor="email">Email</label>
+              <input
+                className="form-control mb-2"
+                value={account.email}
+                onChange={(e) =>
+                  setAccount({ ...account, email: e.target.value })
+                }
+              />
+              <div className="d-flex justify-content-end">
+                <button
+                  className="btn btn-primary button-margin "
+                  onClick={updateUser}
                 >
-                  <Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link
+                    to="/profile"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
                     Save
                   </Link>
                 </button>
-            <button className="btn btn-danger button-margin" onClick={unsave}>
-              Cancel
-            </button>
+                <button
+                  className="btn btn-danger button-margin"
+                  onClick={unsave}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
