@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as followsClient from "../follows/client";
+import CurrentUser from "./currentUser";
 
 function Account() {
-
   const navigate = useNavigate();
   console.log({ navigate });
   const { id } = useParams();
@@ -132,23 +132,26 @@ function Account() {
              </p>
             ))}
           </div> */}
-          {!id && (
-              <div className="d-flex justify-content-end">
-                <button
-                  className="btn btn-primary button-margin "
-                >
-                  <Link to="/updateaccount" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    Update
-                  </Link>
-                </button>
-                <button className="btn btn-danger button-margin" onClick={signout}>
-                  Signout
-                </button>
-              </div>
-          )}
+              {!id && (
+                <div className="d-flex justify-content-end">
+                  <button className="btn btn-primary button-margin ">
+                    <Link
+                      to="/updateaccount"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Update
+                    </Link>
+                  </button>
+                  <button
+                    className="btn btn-danger button-margin"
+                    onClick={signout}
+                  >
+                    Signout
+                  </button>
+                </div>
+              )}
             </div>
           )}
-
         </div>
       </div>
     </div>
