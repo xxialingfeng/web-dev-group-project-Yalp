@@ -41,7 +41,7 @@ function Account() {
       <div className="login-page">
       <div className="form">
       <div className="login-header">
-        <h1>Account Information</h1>
+        <h1>Update Account</h1>
         </div>
         {account && (
           <div>
