@@ -10,23 +10,33 @@ import * as client from "../client";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ReviewList from "../Components/ReviewList";
+import { useSelector } from "react-redux";
 
 function Home() {
-  const user = {
-    userId: "1",
-    username: "defaultuser",
-  };
-  const { userId, username } = user;
+  // const user = {
+  //   userId: "1",
+  //   username: "defaultuser",
+  // };
+  const { currentUser } = useSelector((state) => state.userReducer);
+
+  // const { userId, username } = user;
   const [recentReviews, setRecentReviews] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    client
-      .getReviewsByUserId(userId)
-      .then((reviews) => setUserReviews(reviews));
+    if (currentUser !== null) {
+      const { _id, username, role } = currentUser;
+      console.log(_id);
+      client
+        .getReviewsByUserId(username)
+        .then((reviews) => setUserReviews(reviews));
+      if (role === "ADMIN") {
+        client.findAllUsers().then((users) => setUsers(users));
+      }
+    }
+
     client.getLatestReviews().then((reviews) => setRecentReviews(reviews));
-    client.findAllUsers().then((users) => setUsers(users));
   }, []);
 
   console.log("annonview", recentReviews, typeof recentReviews, userReviews);
@@ -47,26 +57,33 @@ function Home() {
         </>
       ))}
       <ReviewList reviews={recentReviews} /> */}
-      <AnonView username={username} recentReviews={recentReviews} />
-      <hr />
-      {/* normal user */}
-      <UserView
-        username={username}
-        recentReviews={recentReviews}
-        userReviews={userReviews}
-      />
-      <hr />
-      {/* restaurant owner */}
-      {/* <OwnerView /> */}
-      <hr />
-      {/* restaurant owner */}
-      <AdminView
-        username={username}
-        recentReviews={recentReviews}
-        userReviews={userReviews}
-        users={users}
-      />
-      <hr />
+      {!currentUser && <AnonView recentReviews={recentReviews} />}
+      {currentUser &&
+        (currentUser.role === "ADMIN" ? (
+          <AdminView
+            username={currentUser.username}
+            recentReviews={recentReviews}
+            userReviews={userReviews}
+            users={users}
+          />
+        ) : (
+          <UserView
+            username={currentUser.username}
+            recentReviews={recentReviews}
+            userReviews={userReviews}
+          />
+        ))}
+
+      {/* {currentUser && currentUser.role === "USER" && (
+        <UserView recentReviews={recentReviews} userReviews={userReviews} />
+      )}
+      {currentUser && currentUser.role === "ADMIN" && (
+        <AdminView
+          recentReviews={recentReviews}
+          userReviews={userReviews}
+          users={users}
+        />
+      )} */}
     </Container>
   );
 }
