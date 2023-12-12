@@ -61,6 +61,15 @@ function Details() {
     setReviewContent(response.content);
   };
 
+  const handleWriteAReview = () => {
+    if (currentUser) {
+      createReview();
+    } else {
+      alert("Please login first");
+      navigate("/login");
+    }
+  };
+
   useEffect(() => {
     fetchBusinessById();
     fetchReviewsByBusinessId();
@@ -108,7 +117,11 @@ function Details() {
       <div>
         <h1>Reviews</h1>
         <h2>Write a Review</h2>
-        <button className="btn btn-warning float-end" onClick={createReview}>
+        <button
+          className="btn btn-warning float-end"
+          // onClick={createReview}
+          onClick={handleWriteAReview}
+        >
           Write a review
         </button>
 
@@ -134,7 +147,7 @@ function Details() {
                       <Link to="/profile/{review.userId}">{review.userId}</Link>
                     </h5>
                     <p className="card-text">{review.content}</p>
-                    {review.userId == currentUser.id && (
+                    {currentUser && review.userId == currentUser.id && (
                       <>
                         <button
                           className="btn btn-primary float-end"
