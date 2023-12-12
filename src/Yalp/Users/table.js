@@ -105,7 +105,7 @@ function UserTable() {
           {users.map((user) => (
             <tr key={user._id}>
               <td>
-                <Link to={`/account/${user._id}`} 
+                <Link to={`/profile/${user._id}`} 
                 // onClick={() => handleClick(`/account/${user._id}`)} 
                 >{user.username}</Link>
               </td>

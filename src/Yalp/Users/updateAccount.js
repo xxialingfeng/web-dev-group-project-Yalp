@@ -25,7 +25,7 @@ function Account() {
   };
 
   const unsave = async () => {
-    navigate("/account");
+    navigate("/profile");
   };
 
   useEffect(() => {
@@ -93,7 +93,7 @@ function Account() {
             <button
                   className="btn btn-primary button-margin " onClick={updateUser}
                 >
-                  <Link to="/account" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>
                     Save
                   </Link>
                 </button>

@@ -47,11 +47,11 @@ function Yalp() {
                 element={<Restaurant />}
               />
               <Route path="/users" element={<UserManagement />} />
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/account" element={<Account />} />
+              <Route path="/login" element={<Signin />} />
+              <Route path="/register" element={<Signup />} />
+              <Route path="/profile" element={<Account />} />
               <Route path="/updateaccount" element={<UpdateAccount />} />
-              <Route path="/account/:id" element={<Account />} />
+              <Route path="/profile/:id" element={<Account />} />
               <Route path="search/*" element={<Search />} />
               <Route
                 path="search/:searchTerm/:searchLocation"

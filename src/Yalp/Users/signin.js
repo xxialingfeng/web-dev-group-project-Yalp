@@ -32,7 +32,7 @@ function Signin() {
       const user = await client.signin(credentials);
       console.log({ user });
       dispatch(setCurrentUser(user));
-      navigate("/account");
+      navigate("/profile");
     } catch (error) {
       setError(error);
     }
@@ -66,7 +66,7 @@ function Signin() {
             <button className="btn btn-primary" onClick={signin}>
               Sign in
             </button>
-            <p className="message">Not registered? <Link to="/signup"
+            <p className="message">Not registered? <Link to="/register"
             className={`nav-link`}>Create an account</Link>
           </p>
           <Link to="/home"

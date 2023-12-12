@@ -34,7 +34,7 @@ function Account() {
   const signout = async () => {
     await client.signout();
     dispatch(setCurrentUser(null));
-    navigate("/signin");
+    navigate("/login");
   };
   // const followUser = async () => {
   //   const status = await followsClient.userFollowsUser(id);

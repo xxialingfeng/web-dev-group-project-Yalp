@@ -32,7 +32,7 @@ function Signup() {
       await client.signup(credentials);
       const user = await client.signin(credentials);
       dispatch(setCurrentUser(user));
-      navigate("/account");
+      navigate("/profile");
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -85,7 +85,7 @@ function Signup() {
             <button className="btn btn-primary" onClick={signup}>
               Sign up
             </button>
-            <p className="message">Already have an account? <Link to="/signin"
+            <p className="message">Already have an account? <Link to="/login"
           className={`nav-link`}>Log in</Link></p>
           <Link to="/home"
             className={`nav-link message`}>Back to home page</Link>

@@ -9,9 +9,9 @@ function NavigationBar() {
   const { pathname } = useLocation();
   const { currentUser } = useSelector((state) => state.userReducer);
   const links = [
-    { to: "/signin", label: "Signin" },
-    { to: "/signup", label: "Signup" },
-    { to: "/account", label: "Account" },
+    { to: "/login", label: "Signin" },
+    { to: "/register", label: "Signup" },
+    { to: "/profile", label: "Account" },
   ];
   const active = (path) => (pathname.includes(path) ? "active" : "");
   return (

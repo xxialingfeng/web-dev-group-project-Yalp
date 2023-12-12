@@ -7,7 +7,7 @@ function AnonView(props) {
     <div className="border-1">
       <div className="mt-3 mb-3">
         Hello, visiter! Please <Link to={"/login"}>login</Link> or{" "}
-        <Link to={"/singup"}>signup</Link>.
+        <Link to={"/register"}>signup</Link>.
       </div>
       <h2>Recent Reviews</h2>
       <ReviewList reviews={props.recentReviews} />

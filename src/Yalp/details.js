@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as reviewClient from "./reviews/client";
 import * as businessClient from "./business/client";
 import { useSelector, useDispatch, Provider } from "react-redux";
@@ -16,6 +16,7 @@ function Details() {
   const [business, setBusiness] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [reviewContent, setReviewContent] = useState(null);
+  const navigate = useNavigate();
 
   const fetchBusinessById = async () => {
     const response = await businessClient.findBusinessById(businessId);
